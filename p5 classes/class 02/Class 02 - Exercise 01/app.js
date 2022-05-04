@@ -12,7 +12,7 @@
 // shapes[4] = "Legend";
 
 let shapes = [];
-let gridCount = 8;
+let gridCount = 10;
 let gridSpacing = 800 / gridCount;
 
 function setup() {
@@ -22,9 +22,15 @@ function setup() {
 
     for (let y = 0; y < gridCount; y++) {
         for (let x = 0; x < gridCount; x++) {
-            shapes.push(new Rectangle(x * gridSpacing, y * gridSpacing));
+            let cointToss = Math.floor(random(0, 3))
+            if (cointToss == 2) {
+                shapes.push(new Polygon(x * gridSpacing, y * gridSpacing));
+            } else if (cointToss == 1) {
+                shapes.push(new SquareDonut(x * gridSpacing, y * gridSpacing));
+            } else {
+                shapes.push(new Rectangle(x * gridSpacing, y * gridSpacing));
 
-
+            }
         }
 
     }
@@ -35,10 +41,10 @@ function setup() {
 
 
 function draw() {
-    background(125);
-    //     // for (let i = 0; i < shapes; i + +) {
-    //     shapes[2].render();
-    // }
+    background(50);
+    //      for (let i = 0; i < shapes; i + +) {
+    //      shapes[2].render();
+    //  }
 
     translate(gridSpacing / 2, gridSpacing / 2);
     shapes.forEach(shape => { shape.render() });

@@ -23,7 +23,7 @@ function setup() {
     rectMode(CENTER);
     angleMode(DEGREES);
 
-    pattern01= new CirclePattern(100, 300, 200, 200, _scaler = 0.3);
+    pattern01= new CirclePattern(300, 300, 400, 400, _scaler = 0.3);
     pattern01.populateShapes();
 
 //     for (let y = 0; y < gridCount; y++) {

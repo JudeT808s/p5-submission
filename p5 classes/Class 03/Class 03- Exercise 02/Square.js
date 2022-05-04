@@ -1,9 +1,9 @@
-class Rectangle extends Shape{
+class Square extends Shape{
     constructor(_posX, _posY, _scale = 1) {
         super(_posX, _posY, _scale)
     }
     render() {
-        fill(0);
+        fill(255);
         noStroke();
         push()
         translate(this.posX, this.posY)
@@ -11,4 +11,6 @@ class Rectangle extends Shape{
         rect(0, 0, this.width, this.height)
         pop()
     }
+
+    
 }

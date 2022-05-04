@@ -7,4 +7,8 @@ class Shape {
         this.angle = random(0, 360);
         this.scale = _scale;
     }
+
+    step(){
+        this.angle= this.angle+1
+    }
 }

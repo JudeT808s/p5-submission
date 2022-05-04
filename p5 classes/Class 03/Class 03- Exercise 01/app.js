@@ -1,39 +1,60 @@
-let pattern01;
-let pattern02;
-let pattern03;
-let mypatterns = [];
+// // This is where it all begins
+// shapes.push("john");
+// shapes.push("David");
+// shapes.push("Kevin");
 
-// let gridCount = 10;
-// let gridSpacing = 800 / gridCount;
 
-// let pattern01;
+// shapes.unshift("Mark");
+
+
+// shapes[4] = "Brian";
+// shapes[4] = "Legend";
+
+let shapes = [];
+let gridCount = 10;
+let gridSpacing = 800 / gridCount;
+
+
+let pattern01
 
 function setup() {
     createCanvas(800, 800);
     rectMode(CENTER);
     angleMode(DEGREES);
 
-    mypatterns.push(new CirclePattern(400, 400, 100, 10, (_scaler = 0.4)));
-    mypatterns.push(new CirclePattern(400, 400, 300, 10, (_scaler = 0.4)));
-    mypatterns.push(new CirclePattern(300, 500, 200, 10, (_scaler = 0.4)));
+    // pattern01= new CirclePattern(100, 300, 200, 200, _scaler = 0.3);
+    // pattern01.populateShapes();
 
-    mypatterns.forEach(pattern => {
-        pattern.populateShapes();
-    });
-    //   pattern01.populateShapes();
+    for (let y = 0; y < gridCount; y++) {
+        for (let x = 0; x < gridCount; x++) {
+            let coinToss = Math.floor(random(0, 2));
+            if (coinToss == 2) {
+                shapes.push(new SquareDonut(x * gridSpacing, y * gridSpacing));
+            } else if (coinToss == 1) {
+                shapes.push(new Polygon(x * gridSpacing, y * gridSpacing));
+            } else {
+                shapes.push(new Rectangle(x * gridSpacing, y * gridSpacing));
+            }
 
-}
+
+        }
+
+    }
+ }
+
+// shapes[1] = Peter;
+
 
 
 function draw() {
     background(125);
+        // for (let i = 0; i < shapes; i + +) {
+        shapes[2].render();
+    
+    
+
+    translate(gridSpacing / 2, gridSpacing / 2);
+    shapes.forEach(shape => { shape.render() });
 
     // pattern01.render();
-
-    mypatterns.forEach(pattern => {
-        pattern.render();
-        pattern.populateShapes();
-    });
-
-    // shapes.step
 }
